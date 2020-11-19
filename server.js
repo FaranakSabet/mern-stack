@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require('mongoose')
+const bookRoutes = require("./routes/books.route")
 const cors = require("cors")
 
 require("dotenv").config()
@@ -25,6 +26,8 @@ var corsOptions = {
 app.use(cors(corsOptions))
 
 // Define API routes here
+// books routes
+app.use('/api/books', bookRoutes)
 
 // Send every other request to the React app
 // Define any API routes before this runs
